@@ -2,853 +2,1235 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>دورة Facebook Ads - المبادئ الأساسية للمبتدئين</title>
-<meta name="description" content="دورة تعليمية شاملة في مبادئ إعلانات فيسبوك — من الصفر إلى الاحتراف">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Facebook Ads DZ — دورة جزائرية للمعلن المحترف</title>
+<meta name="description" content="دورة جزائرية 100% في مبادئ Facebook Ads — 5 أيام مكثفة للمبتدئين">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root {
-  --navy: #1E2761;
-  --navy-dark: #151B47;
-  --fb-blue: #1877F2;
-  --coral: #F96167;
-  --gold: #F9E795;
-  --green: #42B72A;
-  --purple: #8B5ABF;
-  --dark: #1A1D2E;
-  --gray-1: #F5F7FA;
-  --gray-2: #E0E4EC;
-  --gray-3: #C0C8D6;
-  --muted: #6C757D;
-  --white: #FFFFFF;
+  /* Modern SaaS Palette - Inspired by Linear/Stripe */
+  --bg: #FFFFFF;
+  --bg-subtle: #FAFAFA;
+  --bg-muted: #F8FAFC;
+  --border: #E2E8F0;
+  --border-hover: #CBD5E1;
+  --text: #0F172A;
+  --text-muted: #64748B;
+  --text-light: #94A3B8;
+
+  --primary: #6366F1;
+  --primary-hover: #4F46E5;
+  --primary-light: #EEF2FF;
+  --primary-dark: #4338CA;
+
+  --accent: #F43F5E;
+  --accent-hover: #E11D48;
+  --accent-light: #FFF1F2;
+
+  --success: #10B981;
+  --success-light: #ECFDF5;
+  --warning: #F59E0B;
+  --warning-light: #FFFBEB;
+
+  --gradient-primary: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+  --gradient-accent: linear-gradient(135deg, #F43F5E 0%, #F97316 100%);
+  --gradient-dark: linear-gradient(180deg, #0F172A 0%, #1E293B 100%);
+  --gradient-hero: radial-gradient(ellipse at top, #EEF2FF 0%, #FFFFFF 60%);
+
+  --shadow-sm: 0 1px 2px 0 rgba(15,23,42,0.05);
+  --shadow: 0 1px 3px 0 rgba(15,23,42,0.08), 0 1px 2px -1px rgba(15,23,42,0.05);
+  --shadow-md: 0 4px 6px -1px rgba(15,23,42,0.06), 0 2px 4px -2px rgba(15,23,42,0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(15,23,42,0.08), 0 4px 6px -4px rgba(15,23,42,0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(15,23,42,0.1), 0 8px 10px -6px rgba(15,23,42,0.06);
+  --shadow-glow: 0 0 40px rgba(99,102,241,0.15);
+
+  --radius: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
 body {
-  font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
-  background: var(--gray-1);
-  color: var(--dark);
+  font-family: 'IBM Plex Sans Arabic', 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
+  font-weight: 400;
 }
 
 .eng { direction: ltr; display: inline-block; font-family: 'Inter', sans-serif; }
 
 /* ============================================
-   HERO SECTION
+   NAVIGATION
    ============================================ */
-.hero {
-  min-height: 90vh;
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
-  color: white;
-  position: relative;
-  overflow: hidden;
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-brand {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
   display: flex;
   align-items: center;
-  padding: 40px 20px;
+  gap: 8px;
+  letter-spacing: -0.02em;
 }
-.hero .bg-c1 {
+.nav-brand-icon {
+  width: 28px;
+  height: 28px;
+  background: var(--gradient-primary);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 800;
+  font-size: 15px;
+}
+.nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+.nav-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-link:hover { color: var(--text); }
+.nav-cta {
+  padding: 8px 16px;
+  background: var(--text);
+  color: white;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.nav-cta:hover { background: var(--primary); }
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero {
+  padding: 100px 24px 80px;
+  background: var(--gradient-hero);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.hero::before {
+  content: "";
   position: absolute;
-  top: -200px;
-  right: -200px;
-  width: 700px;
-  height: 700px;
-  border-radius: 50%;
-  background: var(--fb-blue);
-  opacity: 0.25;
-  filter: blur(30px);
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(99,102,241,0.08), transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(244,63,94,0.06), transparent 40%);
+  pointer-events: none;
 }
-.hero .bg-c2 {
-  position: absolute;
-  bottom: -150px;
-  left: -100px;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  background: var(--coral);
-  opacity: 0.3;
-  filter: blur(30px);
-}
-.hero-content {
-  max-width: 1200px;
+.hero-inner {
+  max-width: 900px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 40px;
-  align-items: center;
 }
-.hero-left { }
 .hero-badge {
-  display: inline-block;
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.2);
-  padding: 8px 20px;
-  border-radius: 30px;
-  font-size: 14px;
-  color: var(--gold);
-  font-weight: 700;
-  margin-bottom: 25px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+  box-shadow: var(--shadow-sm);
+}
+.hero-badge .dot {
+  width: 6px;
+  height: 6px;
+  background: var(--success);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(16,185,129,0.15);
 }
 .hero-title {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(50px, 8vw, 96px);
-  font-weight: 900;
-  line-height: 1;
-  color: white;
-  margin-bottom: 10px;
-}
-.hero-subtitle {
-  font-size: clamp(28px, 4vw, 42px);
+  font-size: clamp(42px, 7vw, 84px);
   font-weight: 800;
-  color: white;
-  margin-bottom: 25px;
-  line-height: 1.3;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin-bottom: 20px;
 }
-.hero-subtitle .accent {
-  color: var(--coral);
-  position: relative;
+.hero-title .gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .hero-desc {
-  font-size: 18px;
-  color: rgba(255,255,255,0.85);
-  margin-bottom: 35px;
-  max-width: 550px;
-  line-height: 1.8;
-}
-.hero-stats {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-.hero-stat { }
-.hero-stat-num {
-  font-family: 'Inter', sans-serif;
-  font-size: 36px;
-  font-weight: 900;
-  color: var(--gold);
-  line-height: 1;
-}
-.hero-stat-label {
-  font-size: 14px;
-  color: rgba(255,255,255,0.7);
-  margin-top: 5px;
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--text-muted);
+  max-width: 640px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
 }
 .hero-cta-row {
   display: flex;
   gap: 12px;
-  margin-top: 35px;
+  justify-content: center;
+  margin-bottom: 60px;
   flex-wrap: wrap;
 }
 .btn {
-  padding: 14px 30px;
-  border-radius: 12px;
+  padding: 12px 24px;
+  border-radius: var(--radius);
   font-family: inherit;
-  font-size: 16px;
-  font-weight: 800;
+  font-size: 15px;
+  font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   cursor: pointer;
   border: none;
+  line-height: 1;
 }
 .btn-primary {
-  background: var(--coral);
+  background: var(--text);
   color: white;
-  box-shadow: 0 8px 24px rgba(249,97,103,0.4);
+  padding: 14px 24px;
 }
 .btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(249,97,103,0.5);
+  background: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 .btn-secondary {
-  background: rgba(255,255,255,0.1);
-  color: white;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.2);
-}
-.btn-secondary:hover {
-  background: rgba(255,255,255,0.2);
-}
-
-/* Hero visual */
-.hero-visual {
-  position: relative;
-  height: 400px;
-}
-.floating-card {
-  position: absolute;
   background: white;
-  border-radius: 16px;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 14px 24px;
+}
+.btn-secondary:hover { border-color: var(--text); }
+
+/* Hero preview cards floating */
+.hero-preview {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.preview-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
   padding: 20px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-  color: var(--dark);
+  text-align: right;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s;
 }
-.fc-1 {
-  top: 0;
-  right: 0;
-  width: 260px;
-  transform: rotate(-3deg);
-  animation: float 6s ease-in-out infinite;
+.preview-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--primary);
 }
-.fc-2 {
-  bottom: 20px;
-  left: 20px;
-  width: 240px;
-  transform: rotate(4deg);
-  animation: float 6s ease-in-out infinite 1s;
-}
-.fc-3 {
-  top: 150px;
-  left: 80px;
-  width: 200px;
-  transform: rotate(-2deg);
-  animation: float 6s ease-in-out infinite 2s;
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(-3deg); }
-  50% { transform: translateY(-15px) rotate(-3deg); }
-}
-.fc-2 { animation-name: float2; }
-@keyframes float2 {
-  0%, 100% { transform: translateY(0) rotate(4deg); }
-  50% { transform: translateY(-12px) rotate(4deg); }
-}
-.fc-3 { animation-name: float3; }
-@keyframes float3 {
-  0%, 100% { transform: translateY(0) rotate(-2deg); }
-  50% { transform: translateY(-18px) rotate(-2deg); }
-}
-.mini-badge {
-  display: inline-block;
-  padding: 3px 10px;
-  border-radius: 20px;
-  font-size: 10px;
-  font-weight: 800;
-  margin-bottom: 8px;
-}
-.mini-badge.blue { background: #E8F0FF; color: var(--fb-blue); }
-.mini-badge.coral { background: #FFE8EA; color: var(--coral); }
-.mini-badge.green { background: #E6F4EA; color: var(--green); }
-.floating-card h4 {
-  font-size: 14px;
-  color: var(--navy);
-  font-weight: 800;
-  margin-bottom: 6px;
-}
-.floating-card p {
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.5;
-}
-.floating-card .metric {
+.preview-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius);
   display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px dashed var(--gray-2);
-  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  font-size: 18px;
 }
-.floating-card .metric-val {
-  font-weight: 800;
-  color: var(--fb-blue);
+.preview-card.c1 .preview-card-icon { background: var(--primary-light); color: var(--primary); }
+.preview-card.c2 .preview-card-icon { background: var(--success-light); color: var(--success); }
+.preview-card.c3 .preview-card-icon { background: var(--accent-light); color: var(--accent); }
+.preview-card-metric {
   font-family: 'Inter', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+.preview-card-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
 }
 
-@media (max-width: 900px) {
-  .hero-content { grid-template-columns: 1fr; }
-  .hero-visual { display: none; }
+/* ============================================
+   TRUST BAR
+   ============================================ */
+.trust-bar {
+  padding: 40px 24px;
+  border-bottom: 1px solid var(--border);
+}
+.trust-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  text-align: center;
+}
+.trust-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.trust-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.trust-num.gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.trust-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
 }
 
 /* ============================================
    SECTIONS
    ============================================ */
-section { padding: 80px 20px; }
-.container { max-width: 1200px; margin: 0 auto; }
-
-.section-title {
-  text-align: center;
-  font-size: 42px;
-  font-weight: 900;
-  color: var(--navy);
-  margin-bottom: 12px;
+section {
+  padding: 80px 24px;
 }
-.section-subtitle {
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.section-header {
   text-align: center;
-  font-size: 18px;
-  color: var(--muted);
-  margin-bottom: 50px;
-  font-style: italic;
+  max-width: 700px;
+  margin: 0 auto 60px;
+}
+.section-eyebrow {
+  display: inline-block;
+  padding: 4px 12px;
+  background: var(--primary-light);
+  color: var(--primary);
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+  font-family: 'Inter', sans-serif;
+}
+.section-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(30px, 4.5vw, 48px);
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.section-desc {
+  font-size: 17px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ============================================
+   FEATURES BENTO
+   ============================================ */
+.features-section { background: var(--bg-subtle); }
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: minmax(200px, auto);
+  gap: 16px;
+}
+.bento-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.bento-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.bento-card.b1 { grid-column: span 4; grid-row: span 2; background: var(--gradient-dark); color: white; border: none; }
+.bento-card.b2 { grid-column: span 2; }
+.bento-card.b3 { grid-column: span 2; }
+.bento-card.b4 { grid-column: span 3; }
+.bento-card.b5 { grid-column: span 3; }
+.bento-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  font-size: 22px;
+}
+.bento-card:not(.b1) .bento-icon.i1 { background: var(--primary-light); color: var(--primary); }
+.bento-card:not(.b1) .bento-icon.i2 { background: var(--success-light); color: var(--success); }
+.bento-card:not(.b1) .bento-icon.i3 { background: var(--accent-light); color: var(--accent); }
+.bento-card:not(.b1) .bento-icon.i4 { background: var(--warning-light); color: var(--warning); }
+.bento-card.b1 .bento-icon { background: rgba(255,255,255,0.1); color: white; }
+.bento-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  color: inherit;
+}
+.bento-card.b1 .bento-title { font-size: 28px; margin-bottom: 12px; }
+.bento-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+.bento-card.b1 .bento-desc { color: rgba(255,255,255,0.7); font-size: 15px; }
+.bento-visual {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(99,102,241,0.4), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ============================================
+   TIMELINE / DAYS
+   ============================================ */
+.timeline-section { }
+.timeline {
+  position: relative;
+  padding: 20px 0;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  right: 30px;
+  top: 40px;
+  bottom: 40px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--primary), var(--accent));
+  border-radius: 2px;
+}
+.timeline-item {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+  position: relative;
+}
+.timeline-day {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--primary);
+  position: relative;
+  z-index: 2;
+  box-shadow: var(--shadow-md);
+}
+.timeline-item:nth-child(2) .timeline-day { border-color: var(--accent); color: var(--accent); }
+.timeline-item:nth-child(3) .timeline-day { border-color: var(--success); color: var(--success); }
+.timeline-item:nth-child(4) .timeline-day { border-color: #8B5CF6; color: #8B5CF6; }
+.timeline-item:nth-child(5) .timeline-day { border-color: var(--warning); color: var(--warning); }
+.timeline-content {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  transition: all 0.2s;
+}
+.timeline-content:hover { border-color: var(--primary); box-shadow: var(--shadow-md); }
+.timeline-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  font-family: 'Inter', sans-serif;
+}
+.timeline-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+.timeline-desc {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 /* ============================================
    SESSIONS GRID
    ============================================ */
+.sessions-section { background: var(--bg-subtle); }
 .sessions-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 25px;
+  gap: 20px;
 }
 .session-card {
   background: white;
-  border-radius: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 8px 30px rgba(30,39,97,0.1);
   transition: all 0.3s ease;
-  position: relative;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .session-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(30,39,97,0.2);
+  border-color: var(--primary);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
 }
-.session-card.locked { opacity: 0.6; }
-.session-card.locked:hover { transform: none; }
+.session-card.locked { opacity: 0.7; }
+.session-card.locked:hover { transform: none; box-shadow: none; border-color: var(--border); }
 
-.session-header {
-  padding: 25px;
-  color: white;
-  position: relative;
-  overflow: hidden;
-}
-.session-header::before {
-  content: "";
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  width: 150px;
-  height: 150px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 50%;
-}
-.session-header::after {
-  content: "";
-  position: absolute;
-  bottom: -80px;
-  left: -30px;
-  width: 120px;
-  height: 120px;
-  background: rgba(255,255,255,0.08);
-  border-radius: 50%;
-}
-.sh-1 { background: linear-gradient(135deg, var(--fb-blue), #0A5FCE); }
-.sh-2 { background: linear-gradient(135deg, var(--coral), #E04046); }
-.sh-3 { background: linear-gradient(135deg, var(--green), #2E8B22); }
-.sh-4 { background: linear-gradient(135deg, var(--purple), #6D3F9F); }
-.sh-5 { background: linear-gradient(135deg, #F5A623, #D97F00); }
-.sh-6 { background: linear-gradient(135deg, #00B2FF, #0074BC); }
-.sh-locked { background: linear-gradient(135deg, #6C757D, #495057); }
-
-.session-num {
-  position: relative;
-  z-index: 2;
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 800;
-  opacity: 0.85;
-  margin-bottom: 8px;
-  letter-spacing: 2px;
-}
-.session-title {
-  position: relative;
-  z-index: 2;
-  font-size: 24px;
-  font-weight: 900;
-  margin-bottom: 8px;
-}
-.session-meta {
-  position: relative;
-  z-index: 2;
+.session-top {
+  padding: 20px 22px 16px;
+  border-bottom: 1px solid var(--border);
   display: flex;
-  gap: 15px;
-  font-size: 12px;
-  opacity: 0.9;
+  justify-content: space-between;
+  align-items: flex-start;
 }
-.session-meta span {
+.session-tag-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.session-day-tag {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
+  padding: 3px 10px;
+  background: var(--primary-light);
+  color: var(--primary);
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  width: fit-content;
 }
-
+.session-number {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-light);
+}
+.session-status {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+}
+.session-status.available {
+  background: var(--success-light);
+  color: var(--success);
+}
+.session-status.soon {
+  background: var(--bg-muted);
+  color: var(--text-light);
+}
 .session-body {
-  padding: 22px 25px;
+  padding: 20px 22px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
+.session-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
 .session-desc {
-  color: var(--dark);
+  color: var(--text-muted);
   font-size: 14px;
-  line-height: 1.7;
-  margin-bottom: 15px;
+  line-height: 1.6;
+  margin-bottom: 16px;
   flex-grow: 1;
 }
 .session-topics {
   list-style: none;
-  margin-bottom: 20px;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+  margin-top: 4px;
 }
 .session-topics li {
-  padding: 5px 0;
+  padding: 4px 0;
   font-size: 13px;
-  color: var(--muted);
+  color: var(--text-muted);
   display: flex;
   gap: 8px;
   align-items: flex-start;
 }
 .session-topics li::before {
-  content: "✓";
-  color: var(--green);
-  font-weight: 900;
+  content: "→";
+  color: var(--primary);
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
   flex-shrink: 0;
 }
 .session-card.locked .session-topics li::before {
-  content: "○";
-  color: var(--gray-3);
+  content: "•";
+  color: var(--text-light);
 }
-
 .session-footer {
-  padding: 15px 25px 22px;
-  border-top: 1px solid var(--gray-1);
+  padding: 14px 22px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-muted);
 }
 .session-btn {
-  display: block;
-  width: 100%;
-  padding: 12px;
-  border-radius: 10px;
-  text-align: center;
-  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-radius: var(--radius);
   text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
   transition: all 0.2s;
-  font-size: 15px;
 }
 .session-btn.available {
-  background: var(--navy);
+  background: var(--text);
   color: white;
 }
 .session-btn.available:hover {
-  background: var(--coral);
-  transform: translateY(-2px);
+  background: var(--primary);
 }
 .session-btn.locked {
-  background: var(--gray-2);
-  color: var(--muted);
+  background: transparent;
+  color: var(--text-light);
   cursor: not-allowed;
-}
-
-.status-tag {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  z-index: 3;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 11px;
-  font-weight: 800;
-}
-.status-tag.new {
-  background: var(--gold);
-  color: var(--navy);
-}
-.status-tag.soon {
-  background: rgba(0,0,0,0.3);
-  backdrop-filter: blur(10px);
-  color: white;
-}
-
-/* ============================================
-   FEATURES SECTION
-   ============================================ */
-.features-section {
-  background: white;
-}
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 25px;
-}
-.feature {
-  text-align: center;
-  padding: 25px 20px;
-}
-.feature-icon {
-  width: 70px;
-  height: 70px;
-  border-radius: 20px;
-  margin: 0 auto 18px;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 32px;
-  color: white;
 }
-.feature-icon.f1 { background: linear-gradient(135deg, var(--fb-blue), #0A5FCE); }
-.feature-icon.f2 { background: linear-gradient(135deg, var(--coral), #E04046); }
-.feature-icon.f3 { background: linear-gradient(135deg, var(--green), #2E8B22); }
-.feature-icon.f4 { background: linear-gradient(135deg, var(--purple), #6D3F9F); }
-.feature-title {
-  color: var(--navy);
-  font-size: 20px;
-  font-weight: 800;
-  margin-bottom: 10px;
-}
-.feature-desc {
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.7;
+.session-btn .arrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
 }
 
 /* ============================================
-   INSTRUCTOR SECTION
+   CTA SECTION
    ============================================ */
-.instructor-section {
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+.cta-section {
+  padding: 100px 24px;
+  text-align: center;
+  background: var(--gradient-dark);
   color: white;
   position: relative;
   overflow: hidden;
 }
-.instructor-section .bg-c {
+.cta-section::before {
+  content: "";
   position: absolute;
-  top: -100px;
-  left: -100px;
-  width: 400px;
-  height: 400px;
+  top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(99,102,241,0.3), transparent 70%);
   border-radius: 50%;
-  background: var(--coral);
-  opacity: 0.2;
-  filter: blur(30px);
 }
-.instructor-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
+.cta-section::after {
+  content: "";
+  position: absolute;
+  bottom: -100px; left: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(244,63,94,0.2), transparent 70%);
+  border-radius: 50%;
+}
+.cta-inner {
   max-width: 700px;
   margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
-.instructor-title {
-  color: white;
-  font-size: 36px;
-  font-weight: 900;
+.cta-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
   margin-bottom: 20px;
 }
-.instructor-desc {
-  color: rgba(255,255,255,0.85);
-  font-size: 17px;
-  line-height: 1.8;
-  margin-bottom: 30px;
+.cta-desc {
+  font-size: 18px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 32px;
+  line-height: 1.6;
 }
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background: white;
+  color: var(--text);
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+.cta-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-xl); }
 
 /* ============================================
    FOOTER
    ============================================ */
 footer {
-  background: var(--dark);
-  color: white;
-  padding: 40px 20px;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 40px 24px;
   text-align: center;
 }
-.footer-content { max-width: 1200px; margin: 0 auto; }
 .footer-brand {
   font-family: 'Inter', sans-serif;
-  font-size: 22px;
-  font-weight: 900;
-  color: white;
-  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
 }
-.footer-brand span { color: var(--coral); }
 .footer-text {
-  color: rgba(255,255,255,0.6);
-  font-size: 14px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ============================================
+   MOBILE RESPONSIVE
+   ============================================ */
+@media (max-width: 900px) {
+  .nav-links a:not(.nav-cta) { display: none; }
+  .trust-inner { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+  .hero-preview { grid-template-columns: 1fr; }
+  .bento-grid { grid-template-columns: 1fr; }
+  .bento-card.b1, .bento-card.b2, .bento-card.b3, .bento-card.b4, .bento-card.b5 { grid-column: span 1; grid-row: auto; }
+  .sessions-grid { grid-template-columns: 1fr; }
+  section { padding: 60px 20px; }
+  .section-header { margin-bottom: 40px; }
+}
+
+@media (max-width: 500px) {
+  .hero { padding: 60px 20px 40px; }
+  .hero-title { font-size: 38px; }
+  .hero-desc { font-size: 15px; }
+  .btn { padding: 12px 20px; font-size: 14px; }
+  .btn-primary, .btn-secondary { padding: 12px 20px; }
+  .hero-cta-row { flex-direction: column; align-items: stretch; }
+  .btn { justify-content: center; }
+  .trust-inner { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .trust-num { font-size: 28px; }
+  .bento-card { padding: 22px; }
+  .bento-title { font-size: 20px; }
+  .timeline-item { grid-template-columns: 48px 1fr; gap: 16px; }
+  .timeline-day { width: 48px; height: 48px; font-size: 16px; }
+  .timeline::before { right: 24px; }
+  .timeline-title { font-size: 17px; }
+  section { padding: 50px 16px; }
+  .nav-inner { padding: 12px 16px; }
+  .cta-section { padding: 60px 20px; }
+  .cta-title { font-size: 28px; }
+  .cta-desc { font-size: 15px; }
 }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">
+      <span class="nav-brand-icon">f</span>
+      Facebook Ads DZ
+    </a>
+    <div class="nav-links">
+      <a href="#features" class="nav-link">المميزات</a>
+      <a href="#timeline" class="nav-link">خارطة الطريق</a>
+      <a href="#sessions" class="nav-link">الجلسات</a>
+      <a href="session-1.html" class="nav-cta">ابدأ الآن ←</a>
+    </div>
+  </div>
+</nav>
+
 <!-- HERO -->
 <section class="hero">
-  <div class="bg-c1"></div>
-  <div class="bg-c2"></div>
-  <div class="hero-content">
-    <div class="hero-left">
-      <div class="hero-badge">🎓 دورة تعليمية شاملة</div>
-      <h1 class="hero-title">Facebook Ads</h1>
-      <h2 class="hero-subtitle">من الصفر إلى <span class="accent">الاحتراف</span></h2>
-      <p class="hero-desc">
-        دورة عربية شاملة تأخذ بيدك خطوة بخطوة من المبادئ الأساسية إلى إطلاق حملات إعلانية احترافية تحقق نتائج حقيقية.
-      </p>
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <div class="hero-stat-num">12</div>
-          <div class="hero-stat-label">جلسة تعليمية</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">24</div>
-          <div class="hero-stat-label">ساعة تدريب</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">100%</div>
-          <div class="hero-stat-label">تطبيق عملي</div>
-        </div>
-      </div>
-      <div class="hero-cta-row">
-        <a href="#sessions" class="btn btn-primary">ابدأ الآن ←</a>
-        <a href="#features" class="btn btn-secondary">تعرف على المحتوى</a>
-      </div>
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      <span>🇩🇿 دورة جزائرية 100% — الجلسة الأولى متاحة</span>
     </div>
-    <div class="hero-visual">
-      <div class="floating-card fc-1">
-        <div class="mini-badge blue">CTR</div>
-        <h4>معدل النقر</h4>
-        <p>نسبة الأشخاص الذين تفاعلوا مع إعلانك</p>
-        <div class="metric">
-          <span>الهدف</span>
-          <span class="metric-val">2.5%</span>
-        </div>
+    <h1 class="hero-title">
+      تعلّم <span class="gradient">Facebook Ads</span><br>
+      كمعلن جزائري محترف
+    </h1>
+    <p class="hero-desc">
+      دورة مكثّفة على 5 أيام مصمّمة خصيصاً للسوق الجزائري — من المبادئ الأساسية إلى إطلاق حملات COD مربحة. بأمثلة، أسعار، وأدوات محلية.
+    </p>
+    <div class="hero-cta-row">
+      <a href="session-1.html" class="btn btn-primary">
+        ابدأ الجلسة الأولى ←
+      </a>
+      <a href="#timeline" class="btn btn-secondary">
+        استكشف خارطة الطريق
+      </a>
+    </div>
+
+    <div class="hero-preview">
+      <div class="preview-card c1">
+        <div class="preview-card-icon">💡</div>
+        <div class="preview-card-metric">~7 دج</div>
+        <div class="preview-card-label">متوسط CPC في الجزائر</div>
       </div>
-      <div class="floating-card fc-2">
-        <div class="mini-badge coral">ROAS</div>
-        <h4>العائد على الإنفاق</h4>
-        <p>كم ريال حصّلت مقابل كل ريال أنفقته</p>
-        <div class="metric">
-          <span>ممتاز</span>
-          <span class="metric-val" style="color:var(--coral);">4.2x</span>
-        </div>
+      <div class="preview-card c2">
+        <div class="preview-card-icon">📈</div>
+        <div class="preview-card-metric">3-5x</div>
+        <div class="preview-card-label">ROAS مستهدف للـ COD</div>
       </div>
-      <div class="floating-card fc-3">
-        <div class="mini-badge green">CPA</div>
-        <h4>تكلفة التحويل</h4>
-        <div class="metric">
-          <span>الأمثل</span>
-          <span class="metric-val" style="color:var(--green);">$8.5</span>
-        </div>
+      <div class="preview-card c3">
+        <div class="preview-card-icon">🎯</div>
+        <div class="preview-card-metric">25M+</div>
+        <div class="preview-card-label">مستخدم فيسبوك في الجزائر</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FEATURES -->
+<!-- TRUST BAR -->
+<section class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-num gradient">5</div>
+      <div class="trust-label">أيام مكثفة</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-num">10</div>
+      <div class="trust-label">جلسات عملية</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-num">20h</div>
+      <div class="trust-label">ساعة تدريب</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-num">100%</div>
+      <div class="trust-label">جزائري 🇩🇿</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES BENTO -->
 <section class="features-section" id="features">
-  <div class="container">
-    <h2 class="section-title">ماذا يميّز هذه الدورة؟</h2>
-    <p class="section-subtitle">تجربة تعليمية مصممة خصيصاً للجمهور العربي</p>
-    <div class="features-grid">
-      <div class="feature">
-        <div class="feature-icon f1">🎯</div>
-        <div class="feature-title">محتوى عملي</div>
-        <div class="feature-desc">كل جلسة تحتوي على Live Demo وتطبيقات فعلية على <span class="eng">Ads Manager</span></div>
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">لماذا نحن؟</div>
+      <h2 class="section-title">دورة مبنية على واقع السوق الجزائري</h2>
+      <p class="section-desc">لا نظريات عامة من الخارج — بل تجربة حقيقية بأدوات ومنصات محلية.</p>
+    </div>
+
+    <div class="bento-grid">
+      <div class="bento-card b1">
+        <div class="bento-icon">🇩🇿</div>
+        <div class="bento-title">مصمّمة للمعلن الجزائري بالكامل</div>
+        <div class="bento-desc">
+          أسعار بالدينار الجزائري (دج)، منصات محلية (LightFunnel, Youcan)، منصات تأكيد (Jovia)، حلول دفع فعلية للمعلن الجزائري (Payoneer, Wise)، وأمثلة من نيشات COD حقيقية.
+        </div>
+        <div class="bento-visual"></div>
       </div>
-      <div class="feature">
-        <div class="feature-icon f2">🌍</div>
-        <div class="feature-title">مخصص للسوق العربي</div>
-        <div class="feature-desc">أمثلة، أرقام، ونصائح تناسب واقع المعلن في المنطقة العربية</div>
+
+      <div class="bento-card b2">
+        <div class="bento-icon i1">⚡</div>
+        <div class="bento-title">مكثفة</div>
+        <div class="bento-desc">5 أيام × 4 ساعات — تنتهي وأنت جاهز لإطلاق حملتك.</div>
       </div>
-      <div class="feature">
-        <div class="feature-icon f3">📊</div>
-        <div class="feature-title">من الصفر للاحتراف</div>
-        <div class="feature-desc">لا تحتاج خبرة سابقة — سنبني معك المعرفة قطعة قطعة</div>
+
+      <div class="bento-card b3">
+        <div class="bento-icon i3">💳</div>
+        <div class="bento-title">حلول دفع محلية</div>
+        <div class="bento-desc">Payoneer, Wise — البدائل الحقيقية للمعلن الجزائري.</div>
       </div>
-      <div class="feature">
-        <div class="feature-icon f4">💼</div>
-        <div class="feature-title">قابل للتطبيق فوراً</div>
-        <div class="feature-desc">أطلق حملتك الأولى في الأسبوع الأول من الدورة</div>
+
+      <div class="bento-card b4">
+        <div class="bento-icon i2">🎯</div>
+        <div class="bento-title">مشروع تطبيقي في اليوم الخامس</div>
+        <div class="bento-desc">تُطلق حملة حقيقية لمنتج فعلي في السوق الجزائري مع المدرب — لا نظريات فقط.</div>
+      </div>
+
+      <div class="bento-card b5">
+        <div class="bento-icon i4">📱</div>
+        <div class="bento-title">تعمل على أي جهاز</div>
+        <div class="bento-desc">افتحها على الحاسوب أو الهاتف أو التابلت — بدون تثبيت أي برنامج.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline-section" id="timeline">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">خارطة الطريق</div>
+      <h2 class="section-title">5 أيام تحوّلك إلى مُعلن محترف</h2>
+      <p class="section-desc">كل يوم مبني على الذي قبله — تطبيق عملي 60% ونظري 40%.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-day">1</div>
+        <div class="timeline-content">
+          <div class="timeline-label">اليوم الأول</div>
+          <div class="timeline-title">الأساسيات + التأسيس</div>
+          <div class="timeline-desc">مقدمة Facebook Ads — لماذا وكيف تعمل؟ + بناء Business Manager وتأمين الحساب.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-day">2</div>
+        <div class="timeline-content">
+          <div class="timeline-label">اليوم الثاني</div>
+          <div class="timeline-title">التتبع + هيكلة الحملات</div>
+          <div class="timeline-desc">تركيب Pixel على LightFunnel/Youcan + Events + هيكلة الحملات CBO/ABO.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-day">3</div>
+        <div class="timeline-content">
+          <div class="timeline-label">اليوم الثالث</div>
+          <div class="timeline-title">الاستهداف + الميزانية</div>
+          <div class="timeline-desc">Core, Custom, Lookalike Audiences للسوق الجزائري + إدارة الميزانية بالدينار.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-day">4</div>
+        <div class="timeline-content">
+          <div class="timeline-label">اليوم الرابع</div>
+          <div class="timeline-title">الإبداع + المحتوى</div>
+          <div class="timeline-desc">أنواع الإعلانات + صناعة Hook قوي + كتابة النص بالدارجة الجزائرية.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-day">5</div>
+        <div class="timeline-content">
+          <div class="timeline-label">اليوم الخامس</div>
+          <div class="timeline-title">التحليل + مشروع ختامي</div>
+          <div class="timeline-desc">قراءة Ads Manager + A/B Testing + Scaling + إطلاق حملة حقيقية معاً.</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- SESSIONS -->
-<section id="sessions" style="background: var(--gray-1);">
-  <div class="container">
-    <h2 class="section-title">جلسات الدورة</h2>
-    <p class="section-subtitle">12 جلسة موزعة على 5 محاور رئيسية</p>
+<section class="sessions-section" id="sessions">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">الجلسات</div>
+      <h2 class="section-title">10 جلسات — كل جلسة تبني على السابقة</h2>
+      <p class="section-desc">جلستان في كل يوم × ساعتان لكل واحدة.</p>
+    </div>
+
     <div class="sessions-grid">
 
-      <!-- Session 1 -->
       <div class="session-card">
-        <div class="status-tag new">✓ متاحة</div>
-        <div class="session-header sh-1">
-          <div class="session-num">SESSION 01</div>
-          <div class="session-title">مقدمة في <span class="eng">Facebook Ads</span></div>
-          <div class="session-meta">
-            <span>⏱ ساعتان</span>
-            <span>📊 15 شريحة</span>
+        <div class="session-top">
+          <div class="session-tag-row">
+            <div class="session-day-tag">يوم 1 · صباحاً</div>
+            <div class="session-number">Session 01</div>
           </div>
+          <div class="session-status available">✓ متاحة</div>
         </div>
         <div class="session-body">
-          <p class="session-desc">لماذا وكيف تعمل إعلانات فيسبوك؟ فهم الأساسيات، نظام المزاد، والمصطلحات الأساسية.</p>
+          <div class="session-title">مقدمة في <span class="eng">Facebook Ads</span></div>
+          <p class="session-desc">لماذا وكيف تعمل إعلانات فيسبوك في السوق الجزائري؟ نظام المزاد والمصطلحات.</p>
           <ul class="session-topics">
-            <li>لماذا Facebook Ads وأرقام مذهلة</li>
-            <li>عائلة Meta و Placements</li>
-            <li>نظام المزاد (Auction)</li>
-            <li>المصطلحات الأساسية <span class="eng">(CPM, CPC, CTR, CPA, ROAS)</span></li>
+            <li>25M+ جزائري + نظام المزاد</li>
+            <li>المصطلحات: CPM, CPC, CTR, CPA, ROAS</li>
             <li>رحلة الزبون + جولة Ads Manager</li>
           </ul>
         </div>
         <div class="session-footer">
-          <a href="session-1.html" class="session-btn available">افتح الجلسة ←</a>
+          <a href="session-1.html" class="session-btn available">
+            <span>افتح الجلسة</span>
+            <span class="arrow">←</span>
+          </a>
         </div>
       </div>
 
-      <!-- Session 2 -->
       <div class="session-card">
-        <div class="status-tag new">✓ متاحة</div>
-        <div class="session-header sh-2">
-          <div class="session-num">SESSION 02</div>
-          <div class="session-title"><span class="eng">Business Manager</span></div>
-          <div class="session-meta">
-            <span>⏱ ساعتان</span>
-            <span>🛠 60% تطبيق</span>
+        <div class="session-top">
+          <div class="session-tag-row">
+            <div class="session-day-tag">يوم 1 · بعد الظهر</div>
+            <div class="session-number">Session 02</div>
           </div>
+          <div class="session-status available">✓ متاحة</div>
         </div>
         <div class="session-body">
-          <p class="session-desc">بناء البنية التحتية للإعلانات: إنشاء BM، الحساب الإعلاني، وتأمين الحساب.</p>
+          <div class="session-title"><span class="eng">Business Manager</span></div>
+          <p class="session-desc">بناء البنية التحتية للإعلانات — BM، Ad Account، الأمان، وحلول الدفع.</p>
           <ul class="session-topics">
-            <li>لماذا BM وليس الحساب الشخصي</li>
             <li>الأصول الأربعة داخل BM</li>
-            <li>القرارات النهائية (Currency + Timezone)</li>
-            <li>طرق الدفع والأمان (2FA)</li>
-            <li>إدارة الفريق والصلاحيات</li>
+            <li>القرارات النهائية (DZD, Algiers)</li>
+            <li>Payoneer, Wise + الأمان (2FA)</li>
           </ul>
         </div>
         <div class="session-footer">
-          <a href="session-2.html" class="session-btn available">افتح الجلسة ←</a>
+          <a href="session-2.html" class="session-btn available">
+            <span>افتح الجلسة</span>
+            <span class="arrow">←</span>
+          </a>
         </div>
       </div>
 
-      <!-- Session 3 - Locked -->
       <div class="session-card locked">
-        <div class="status-tag soon">🔒 قريباً</div>
-        <div class="session-header sh-3">
-          <div class="session-num">SESSION 03</div>
-          <div class="session-title"><span class="eng">Pixel</span> و <span class="eng">Events</span></div>
-          <div class="session-meta">
-            <span>⏱ ساعتان</span>
-            <span>🎯 تتبع النتائج</span>
+        <div class="session-top">
+          <div class="session-tag-row">
+            <div class="session-day-tag">يوم 2 · صباحاً</div>
+            <div class="session-number">Session 03</div>
           </div>
+          <div class="session-status soon">قريباً</div>
         </div>
         <div class="session-body">
-          <p class="session-desc">تركيب Pixel على موقعك، إعداد Events، Conversions API، و Domain Verification.</p>
+          <div class="session-title"><span class="eng">Pixel</span> و <span class="eng">Events</span></div>
+          <p class="session-desc">تركيب Pixel على LightFunnel/Youcan + Conversions API + iOS 14.</p>
           <ul class="session-topics">
             <li>ما هو Pixel وكيف يعمل</li>
-            <li>تركيب Pixel على الموقع</li>
+            <li>تركيبه على LightFunnel/Youcan</li>
             <li>Events القياسية والمخصصة</li>
-            <li>Conversions API</li>
-            <li>Domain Verification و iOS 14</li>
           </ul>
         </div>
         <div class="session-footer">
-          <a href="#" class="session-btn locked">قيد الإعداد</a>
+          <div class="session-btn locked">قيد الإعداد</div>
         </div>
       </div>
 
-      <!-- Session 4 - Locked -->
       <div class="session-card locked">
-        <div class="status-tag soon">🔒 قريباً</div>
-        <div class="session-header sh-4">
-          <div class="session-num">SESSION 04</div>
-          <div class="session-title">هيكلة الحملة</div>
-          <div class="session-meta">
-            <span>⏱ ساعتان</span>
-            <span>🏗 الأساسات</span>
+        <div class="session-top">
+          <div class="session-tag-row">
+            <div class="session-day-tag">يوم 2 · بعد الظهر</div>
+            <div class="session-number">Session 04</div>
           </div>
+          <div class="session-status soon">قريباً</div>
         </div>
         <div class="session-body">
-          <p class="session-desc">فهم هرم Campaign / Ad Set / Ad، الفرق بين CBO و ABO، واختيار الهدف المناسب.</p>
+          <div class="session-title">هيكلة الحملة</div>
+          <p class="session-desc">هرم Campaign / Ad Set / Ad، CBO vs ABO، وأول حملة COD.</p>
           <ul class="session-topics">
             <li>هرم CBO/ABO</li>
             <li>اختيار Campaign Objective</li>
-            <li>Structure Best Practices</li>
-            <li>البدء بحملة أولى</li>
+            <li>إطلاق حملة تجريبية</li>
           </ul>
         </div>
         <div class="session-footer">
-          <a href="#" class="session-btn locked">قيد الإعداد</a>
+          <div class="session-btn locked">قيد الإعداد</div>
         </div>
       </div>
 
-      <!-- Session 5 - Locked -->
       <div class="session-card locked">
-        <div class="status-tag soon">🔒 قريباً</div>
-        <div class="session-header sh-5">
-          <div class="session-num">SESSION 05</div>
-          <div class="session-title">الاستهداف (<span class="eng">Targeting</span>)</div>
-          <div class="session-meta">
-            <span>⏱ ساعتان</span>
-            <span>🎯 دقة عالية</span>
+        <div class="session-top">
+          <div class="session-tag-row">
+            <div class="session-day-tag">يوم 3 · صباحاً</div>
+            <div class="session-number">Session 05</div>
           </div>
+          <div class="session-status soon">قريباً</div>
         </div>
         <div class="session-body">
-          <p class="session-desc">Core Audiences، Custom Audiences، Lookalike، والاستهداف التفصيلي.</p>
+          <div class="session-title">الاستهداف — <span class="eng">Targeting</span></div>
+          <p class="session-desc">Core, Custom, Lookalike Audiences للسوق الجزائري + استهداف الولايات.</p>
           <ul class="session-topics">
-            <li>Core Audiences</li>
-            <li>Custom Audiences</li>
-            <li>Lookalike Audiences</li>
-            <li>Detailed Targeting</li>
+            <li>Core, Custom, Lookalike</li>
+            <li>استهداف الولايات الأكثر تحويلاً</li>
+            <li>Interest Stacking</li>
           </ul>
         </div>
         <div class="session-footer">
-          <a href="#" class="session-btn locked">قيد الإعداد</a>
+          <div class="session-btn locked">قيد الإعداد</div>
         </div>
       </div>
 
-      <!-- Session 6 - Locked -->
       <div class="session-card locked">
-        <div class="status-tag soon">🔒 قريباً</div>
-        <div class="session-header sh-6">
-          <div class="session-num">SESSION 06</div>
-          <div class="session-title">الميزانية والمزايدة</div>
-          <div class="session-meta">
-            <span>⏱ ساعتان</span>
-            <span>💰 المال</span>
+        <div class="session-top">
+          <div class="session-tag-row">
+            <div class="session-day-tag">يوم 3 · بعد الظهر</div>
+            <div class="session-number">Session 06</div>
           </div>
+          <div class="session-status soon">قريباً</div>
         </div>
         <div class="session-body">
-          <p class="session-desc">Daily vs Lifetime Budget، Bid Strategies، Placements، و Optimization Goals.</p>
+          <div class="session-title">الميزانية والمزايدة</div>
+          <p class="session-desc">Daily vs Lifetime Budget + Bid Strategies + Placements بأرقام دج.</p>
           <ul class="session-topics">
             <li>Daily vs Lifetime Budget</li>
             <li>Bid Strategies</li>
-            <li>Placements</li>
-            <li>Optimization Goals</li>
+            <li>الميزانية لكل نيش</li>
           </ul>
         </div>
         <div class="session-footer">
-          <a href="#" class="session-btn locked">قيد الإعداد</a>
+          <div class="session-btn locked">قيد الإعداد</div>
+        </div>
+      </div>
+
+      <div class="session-card locked">
+        <div class="session-top">
+          <div class="session-tag-row">
+            <div class="session-day-tag">يوم 4 · صباحاً</div>
+            <div class="session-number">Session 07</div>
+          </div>
+          <div class="session-status soon">قريباً</div>
+        </div>
+        <div class="session-body">
+          <div class="session-title">أنواع الإعلانات + <span class="eng">Hooks</span></div>
+          <p class="session-desc">Video, Image, Carousel + صناعة Hook قوي في أول 3 ثواني.</p>
+          <ul class="session-topics">
+            <li>أنواع الإعلانات لـ COD</li>
+            <li>Hook للجمهور الجزائري</li>
+            <li>UGC vs Studio</li>
+          </ul>
+        </div>
+        <div class="session-footer">
+          <div class="session-btn locked">قيد الإعداد</div>
+        </div>
+      </div>
+
+      <div class="session-card locked">
+        <div class="session-top">
+          <div class="session-tag-row">
+            <div class="session-day-tag">يوم 4 · بعد الظهر</div>
+            <div class="session-number">Session 08</div>
+          </div>
+          <div class="session-status soon">قريباً</div>
+        </div>
+        <div class="session-body">
+          <div class="session-title">كتابة النص الإعلاني</div>
+          <p class="session-desc">Primary Text, Headline, CTA — بالدارجة الجزائرية للتحويل الأقوى.</p>
+          <ul class="session-topics">
+            <li>معادلة Copy الناجح</li>
+            <li>الدارجة vs الفصحى</li>
+            <li>10 قوالب جاهزة</li>
+          </ul>
+        </div>
+        <div class="session-footer">
+          <div class="session-btn locked">قيد الإعداد</div>
+        </div>
+      </div>
+
+      <div class="session-card locked">
+        <div class="session-top">
+          <div class="session-tag-row">
+            <div class="session-day-tag">يوم 5 · صباحاً</div>
+            <div class="session-number">Session 09</div>
+          </div>
+          <div class="session-status soon">قريباً</div>
+        </div>
+        <div class="session-body">
+          <div class="session-title">التحليل + <span class="eng">A/B Testing</span></div>
+          <p class="session-desc">قراءة Ads Manager + Breakdowns + متى Kill or Scale.</p>
+          <ul class="session-topics">
+            <li>Ads Manager بعمق</li>
+            <li>A/B Testing</li>
+            <li>قواعد Kill or Scale</li>
+          </ul>
+        </div>
+        <div class="session-footer">
+          <div class="session-btn locked">قيد الإعداد</div>
+        </div>
+      </div>
+
+      <div class="session-card locked">
+        <div class="session-top">
+          <div class="session-tag-row">
+            <div class="session-day-tag">يوم 5 · بعد الظهر</div>
+            <div class="session-number">Session 10</div>
+          </div>
+          <div class="session-status soon">قريباً</div>
+        </div>
+        <div class="session-body">
+          <div class="session-title"><span class="eng">Scaling</span> + مشروع ختامي</div>
+          <p class="session-desc">Vertical & Horizontal Scaling + إطلاق مشروع تطبيقي حقيقي معاً.</p>
+          <ul class="session-topics">
+            <li>Vertical & Horizontal Scaling</li>
+            <li>سياسات فيسبوك</li>
+            <li>مشروع تطبيقي حقيقي</li>
+          </ul>
+        </div>
+        <div class="session-footer">
+          <div class="session-btn locked">قيد الإعداد</div>
         </div>
       </div>
 
     </div>
-    <p style="text-align: center; margin-top: 40px; color: var(--muted); font-size: 15px;">
-      + 6 جلسات إضافية قيد الإعداد (الإبداع، التحليل، التحسين، والإتقان)
-    </p>
   </div>
 </section>
 
-<!-- INSTRUCTOR -->
-<section class="instructor-section">
-  <div class="bg-c"></div>
-  <div class="container instructor-content">
-    <h2 class="instructor-title">مصممة للتقديم الحضوري والذاتي</h2>
-    <p class="instructor-desc">
-      كل جلسة تحتوي على وضعَين: <strong style="color:var(--gold);">وضع العرض</strong> للتقديم أمام الجمهور، و<strong style="color:var(--gold);">وضع القراءة</strong> للمراجعة الذاتية مع ملاحظات المدرب الكاملة. تعمل على أي جهاز بدون تثبيت أي برامج.
-    </p>
-    <a href="#sessions" class="btn btn-primary">استكشف الجلسات</a>
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2 class="cta-title">جاهز لإطلاق أول حملة؟</h2>
+    <p class="cta-desc">ابدأ من الجلسة الأولى الآن — بدون تسجيل، بدون تكلفة.</p>
+    <a href="session-1.html" class="cta-btn">
+      ابدأ الجلسة الأولى ←
+    </a>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-content">
-    <div class="footer-brand"><span>Facebook Ads</span> Course</div>
-    <div class="footer-text">دورة تعليمية للمبتدئين — جميع الحقوق محفوظة © 2026</div>
-  </div>
+  <div class="footer-brand">Facebook Ads DZ Course</div>
+  <div class="footer-text">دورة جزائرية 100% للمعلن الجزائري 🇩🇿 · © 2026</div>
 </footer>
 
 </body>
